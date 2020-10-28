@@ -8,7 +8,7 @@
 using namespace std;
 string Board[6][7];
 bool Win = false;
-int Placement=0, Turn = 1, count=0;
+int Placement=0, Turn = 1, count=0, countRight=0, countLeft=0;
 
 /*
 string* Update_Board()
@@ -127,16 +127,20 @@ int main()
 
         for(int Row_Dia_Check =5; Row_Dia_Check>2; Row_Dia_Check--)
         {
-            for(int Col_Dia_Check=0; Col_Dia_Check<6;Col_Dia_Check++)
+            for(int Col_Dia_Check=0; Col_Dia_Check<7;Col_Dia_Check++)
             {
                 for(int Diagonal=1; Diagonal<4; Diagonal++)
                 {
                     if(Board[Row_Dia_Check][Col_Dia_Check]==Board[Row_Dia_Check-Diagonal][Col_Dia_Check+Diagonal]&& (Board[Row_Dia_Check][Col_Dia_Check]!=" - "))
-                        count++;
+                        countRight++;
                     else
-                        count=0;
+                        countRight=0;
 
-                    if(count==3)
+                    if(Board[Row_Dia_Check][Col_Dia_Check]==Board[Row_Dia_Check-Diagonal][Col_Dia_Check-Diagonal]&& (Board[Row_Dia_Check][Col_Dia_Check]!=" - "))
+                        countLeft++;
+                    else
+                        countLeft=0;
+                    if(countRight==3 || countLeft==3)
                     {
                         if(Board[Row_Dia_Check][Col_Dia_Check]==" O ") cout << "Player O has won.";
                         else cout << "Player X has won.";
@@ -150,9 +154,3 @@ int main()
     }
 
 }
-/*
-if(Board[Row_Dia_Check][Col_Dia_Check]==Board[Row_Dia_Check-Diagonal][Col_Dia_Check-Diagonal])
-count++;
-else
-count=0;
- */
