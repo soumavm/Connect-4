@@ -10,11 +10,6 @@ string Board[6][7];
 bool Win = false;
 int Placement=0, Turn = 1, count=0;
 
-/*
-string* Update_Board()
-{
-}
-*/
 int main()
 {
 
@@ -35,6 +30,7 @@ int main()
         }
         cout<<endl;
     }
+
 
     while(!Win)
     {
@@ -62,5 +58,67 @@ int main()
         }
 
         Turn++;
-	}
+
+        //Displays Board
+        for(int Row=0; Row<6; Row++)
+        {
+            for(int Column=0; Column<7; Column++)
+            {
+                cout << Board[Row][Column];
+            }
+            cout<<endl;
+        }
+
+        //checks for horizontal win
+        for(int Row_Check =5; Row_Check>-1; Row_Check--)
+        {
+            for(int i=1; i<7;i++)
+            {
+                if((Board[Row_Check][i-1]==Board[Row_Check][i]) &&
+                   (Board[Row_Check][i]!=" - "))
+                {
+                    count++;
+                }
+
+                else
+                    count=0;
+
+                if(count==3)
+                {
+                    if(Board[Row_Check][i]==" O ") cout << "Player O has won.";
+                    else cout << "Player X has won.";
+                    Win = true;
+                    break;
+                }
+
+            }
+            count=0;
+        }
+
+        //checks for vertical win
+        for(int Col_Check =6; Col_Check>-1; Col_Check--)
+        {
+            for(int j=1; j<6;j++)
+            {
+                if((Board[j-1][Col_Check]==Board[j][Col_Check]) &&
+                   (Board[j][Col_Check]!=" - "))
+                    count++;
+
+                else
+                    count=0;
+
+                if(count==3)
+                {
+                    if(Board[j][Col_Check]==" O ") cout << "Player O has won.";
+                    else cout << "Player X has won.";
+                    Win = true;
+                    break;
+                }
+
+            }
+            count=0;
+        }
+
+    }
+
 }
