@@ -8,7 +8,7 @@
 using namespace std;
 string Board[6][7];
 bool Win = false;
-int Placement=0, Turn = 1, count=0, countRight=0, countLeft=0;
+int Placement=1, Turn = 1, count=0, countRight=0, countLeft=0;
 
 /*
 string* Update_Board()
@@ -40,7 +40,7 @@ int main()
     while(!Win)
     {
         //Places down user inputs
-        cout << "Player " << Turn << "'s Turn"<<endl << "Enter Row Placement: ";
+        cout << "Player " << Turn << "'s Turn"<<endl << "Enter Column Placement:";
         cin>>Placement;
         Turn = Turn%2;
 
@@ -90,8 +90,8 @@ int main()
 
                 if(count==3)
                 {
-                    if(Board[Row_Check][Column]==" O ") cout << "Player O has won.";
-                    else cout << "Player X has won.";
+                    if(Board[Row_Check][Column]==" O ") cout << "Player O has won with Horizontal.";
+                    else cout << "Player X has won with Horizontal.";
                     Win = true;
                     break;
                 }
@@ -113,8 +113,8 @@ int main()
 
                 if(count==3)
                 {
-                    if(Board[Row][Col_Check]==" O ") cout << "Player O has won.";
-                    else cout << "Player X has won.";
+                    if(Board[Row][Col_Check]==" O ") cout << "Player O has won with vertical.";
+                    else cout << "Player X has won with Vertical.";
                     Win = true;
                     break;
                 }
@@ -131,23 +131,27 @@ int main()
             {
                 for(int Diagonal=1; Diagonal<4; Diagonal++)
                 {
-                    if(Board[Row_Dia_Check][Col_Dia_Check]==Board[Row_Dia_Check-Diagonal][Col_Dia_Check+Diagonal]&& (Board[Row_Dia_Check][Col_Dia_Check]!=" - "))
+                    if(Board[Row_Dia_Check][Col_Dia_Check]==Board[Row_Dia_Check-Diagonal][Col_Dia_Check+Diagonal] && (Board[Row_Dia_Check][Col_Dia_Check]!=" - "))
                         countRight++;
                     else
                         countRight=0;
 
-                    if(Board[Row_Dia_Check][Col_Dia_Check]==Board[Row_Dia_Check-Diagonal][Col_Dia_Check-Diagonal]&& (Board[Row_Dia_Check][Col_Dia_Check]!=" - "))
+                    if(Board[Row_Dia_Check][Col_Dia_Check]==Board[Row_Dia_Check-Diagonal][Col_Dia_Check-Diagonal] && (Board[Row_Dia_Check][Col_Dia_Check]!=" - "))
                         countLeft++;
                     else
                         countLeft=0;
+
                     if(countRight==3 || countLeft==3)
                     {
-                        if(Board[Row_Dia_Check][Col_Dia_Check]==" O ") cout << "Player O has won.";
-                        else cout << "Player X has won.";
+                        if(Board[Row_Dia_Check][Col_Dia_Check]==" O ") cout << "Player O has won with Diagonal";
+                        else cout << "Player X has won with Diagonal";
                         Win = true;
                         break;
                     }
+
                 }
+                countLeft=0;
+                countRight=0;
             }
         }
 
