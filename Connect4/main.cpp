@@ -10,14 +10,9 @@ string Board[6][7];
 bool Win = false;
 int Placement=1, Turn = 1, count=0, countRight=0, countLeft=0;
 
-/*
-string* Update_Board()
-{
-}
-*/
+
 int main()
 {
-
     //fills game Board with blanks
     for(int Row=0; Row<6; Row++)
     {
