@@ -36,4 +36,31 @@ int main()
         cout<<endl;
     }
 
+    while(!Win)
+    {
+        //Places down user inputs
+        cout << "Player " << Turn << "'s Turn"<<endl << "Enter Row Placement: ";
+        cin>>Placement;
+        Turn = Turn%2;
+
+        for(int Row_Placed=6; Row_Placed>0; Row_Placed--)
+        {
+            if(Board[Row_Placed-1][Placement-1]==" - ")
+            {
+                if(Turn == 1)
+                {
+                    Board[Row_Placed-1][Placement-1] = " X ";
+                    break;
+                }
+                else
+                {
+                    Board[Row_Placed-1][Placement-1] = " O ";
+                    break;
+                }
+            }
+
+        }
+
+        Turn++;
+	}
 }
