@@ -77,10 +77,10 @@ int main()
         //checks for horizontal win
         for(int Row_Check =5; Row_Check>-1; Row_Check--)
         {
-            for(int i=1; i<7;i++)
+            for(int Column=1; Column<7;Column++)
             {
-                if((Board[Row_Check][i-1]==Board[Row_Check][i]) &&
-                   (Board[Row_Check][i]!=" - "))
+                if((Board[Row_Check][Column-1]==Board[Row_Check][Column]) &&
+                   (Board[Row_Check][Column]!=" - "))
                 {
                     count++;
                 }
@@ -90,7 +90,7 @@ int main()
 
                 if(count==3)
                 {
-                    if(Board[Row_Check][i]==" O ") cout << "Player O has won.";
+                    if(Board[Row_Check][Column]==" O ") cout << "Player O has won.";
                     else cout << "Player X has won.";
                     Win = true;
                     break;
@@ -103,10 +103,9 @@ int main()
         //checks for vertical win
         for(int Col_Check =6; Col_Check>-1; Col_Check--)
         {
-            for(int j=1; j<6;j++)
+            for(int Row=1; Row<6;Row++)
             {
-                if((Board[j-1][Col_Check]==Board[j][Col_Check]) &&
-                   (Board[j][Col_Check]!=" - "))
+                if((Board[Row-1][Col_Check]==Board[Row][Col_Check]) && (Board[Row][Col_Check]!=" - "))
                     count++;
 
                 else
@@ -114,7 +113,7 @@ int main()
 
                 if(count==3)
                 {
-                    if(Board[j][Col_Check]==" O ") cout << "Player O has won.";
+                    if(Board[Row][Col_Check]==" O ") cout << "Player O has won.";
                     else cout << "Player X has won.";
                     Win = true;
                     break;
@@ -123,32 +122,37 @@ int main()
             }
             count=0;
         }
-        /*
+
         //Diagonal Win
 
-        for(int Dia_Check =6; Dia_Check>-1; Dia_Check--)
+        for(int Row_Dia_Check =5; Row_Dia_Check>2; Row_Dia_Check--)
         {
-            for(int j=1; j<6;j++)
+            for(int Col_Dia_Check=0; Col_Dia_Check<6;Col_Dia_Check++)
             {
-                if((Board[j-1][Dia_Check]==Board[j][Col_Check]) && (Board[j][Col_Check]!=" - "))
-                    count++;
-
-                else
-                    count=0;
-
-                if(count==3)
+                for(int Diagonal=1; Diagonal<4; Diagonal++)
                 {
-                    if(Board[j][Col_Check]==" O ") cout << "Player O has won.";
-                    else cout << "Player X has won.";
-                    Win = true;
-                    break;
+                    if(Board[Row_Dia_Check][Col_Dia_Check]==Board[Row_Dia_Check-Diagonal][Col_Dia_Check+Diagonal]&& (Board[Row_Dia_Check][Col_Dia_Check]!=" - "))
+                        count++;
+                    else
+                        count=0;
+
+                    if(count==3)
+                    {
+                        if(Board[Row_Dia_Check][Col_Dia_Check]==" O ") cout << "Player O has won.";
+                        else cout << "Player X has won.";
+                        Win = true;
+                        break;
+                    }
                 }
-
             }
-            count=0;
-
         }
-         */
+
     }
 
 }
+/*
+if(Board[Row_Dia_Check][Col_Dia_Check]==Board[Row_Dia_Check-Diagonal][Col_Dia_Check-Diagonal])
+count++;
+else
+count=0;
+ */

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/souma/Desktop/Coding projects/Connect4/main.cpp" "C:/Users/souma/Desktop/Coding projects/Connect4/cmake-build-debug/CMakeFiles/Connect4.dir/main.cpp.obj"
+  "C:/Users/souma/Documents/GitHub/Connect-4/Connect4/main.cpp" "C:/Users/souma/Documents/GitHub/Connect-4/Connect4/cmake-build-debug/CMakeFiles/Connect4.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
