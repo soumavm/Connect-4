@@ -3,7 +3,6 @@
 */
 #include <iostream>
 #include <cstdlib>
-#include <array>
 #include "Functions.h"
 using namespace std;
 

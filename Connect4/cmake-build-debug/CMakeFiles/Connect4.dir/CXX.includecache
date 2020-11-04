@@ -6,11 +6,13 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/souma/Documents/GitHub/Connect-4/Connect4/Functions.h
+
 C:/Users/souma/Documents/GitHub/Connect-4/Connect4/main.cpp
 iostream
 -
 cstdlib
 -
-array
--
+Functions.h
+C:/Users/souma/Documents/GitHub/Connect-4/Connect4/Functions.h
 

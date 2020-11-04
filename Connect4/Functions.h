@@ -5,9 +5,8 @@
 #ifndef MAIN_CPP_FUNCTIONS_H
 #define MAIN_CPP_FUNCTIONS_H
 using namespace std;
-bool Win = false;
+bool Win;
 int Placement=1, Turn = 1, count=0, countRight=0, countLeft=0;
-
 
 void fillBoard(string Board[6][7])
 {
@@ -77,7 +76,6 @@ void checkHorizontal(string Board[6][7])
                 Win = true;
                 break;
             }
-
         }
         count=0;
     }
@@ -90,10 +88,8 @@ void checkVertical(string Board[6][7])
         {
             if((Board[Row-1][Col_Check]==Board[Row][Col_Check]) && (Board[Row][Col_Check]!=" - "))
                 count++;
-
             else
                 count=0;
-
             if(count==3)
             {
                 if(Board[Row][Col_Check]==" O ") cout << "Player O has won with vertical.";
@@ -101,11 +97,9 @@ void checkVertical(string Board[6][7])
                 Win = true;
                 break;
             }
-
         }
         count=0;
     }
-
 }
 void checkDiagonal(string Board[6][7])
 {
@@ -139,8 +133,4 @@ void checkDiagonal(string Board[6][7])
         }
     }
 }
-
-
-
-
 #endif //MAIN_CPP_FUNCTIONS_H
