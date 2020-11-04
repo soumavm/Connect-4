@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/souma/Documents/GitHub/Connect-4/Connect4/Functions.h">
+			<Option target="Connect4"/>
+		</Unit>
 		<Unit filename="C:/Users/souma/Documents/GitHub/Connect-4/Connect4/main.cpp">
 			<Option target="Connect4"/>
 		</Unit>
